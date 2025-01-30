@@ -34,8 +34,25 @@ public class MadLib
 		loadAdjectives();
 		try
 		{
+			Scanner reader = new Scanner(new File("story.dat"));
 			//Read the different parts of the story and concatenate the resulting
 			//story using the symbols to tell you the parts of speech
+			while(reader.hasNext())
+				{
+					story+=reader.hasNext();
+				}
+
+				Scanner chopper = new Scanner(story)
+				String story = "";
+				while(chopper.hasNext())
+				story = chopper.next();
+				if(story.equals("@"))
+				getRandomVerb();
+				if(story.equals("&"))
+				getRandomNoun();
+				if(story.equals("#"))
+				getRandomAdjective();
+
 
 
 			//While there is more of the story, read in the word/symbol
@@ -110,22 +127,27 @@ public class MadLib
 
 	public String getRandomVerb()
 	{
-		
-		return "";
+		Random rand = new Random();
+		return "" + verbs.get(rand.nextInt(verbs.size()));
 	}
 
 	public String getRandomNoun()
 	{
-		return "";
+		Random rand = new Random();
+		return "" + nouns.get(rand.nextInt(nouns.size()));
+
 	}
 
 	public String getRandomAdjective()
 	{
-		return "";
+		
+		Random rand = new Random();
+		return "" + Adjectives.get(rand.nextInt(Adjectives.size()));
 	}
 
 	public String toString()
 	{
-		return "" + story;
+		
+		return "" + story.get();
 	}
 }
